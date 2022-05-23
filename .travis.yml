@@ -1,0 +1,9 @@
+sudo: require
+services:
+  - docker
+
+before_install:
+  - docker build -t testName -f Dockerfile.dev .
+
+script:
+  - docker run testName npm run test -- --coverage
